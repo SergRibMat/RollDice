@@ -6,29 +6,22 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import com.example.rolldice.databinding.ActivityMainBinding
 
 
 lateinit var rollButton: Button
 lateinit var diceImageView: ImageView
+private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initViews()
+        createBinding()
+        giveDefaultViewValues()
         initListeners()
-    }
-
-    fun initViews(){
-        rollButton = findViewById(R.id.roll_button)
-        rollButton.text = "Lets Roll"
-        diceImageView = getDiceImageView()
-
-    }
-
-    fun initViewWithViewBinding(){
-
     }
 
     fun buttonListener(button: Button){
@@ -46,8 +39,6 @@ class MainActivity : AppCompatActivity() {
     fun getRandomNumberInRange(from: Int, to: Int): Int = (from..to).random()
 
 
-    fun getDiceImageView(): ImageView = findViewById(R.id.dice_image)
-
     fun getDrawableResource() = when (getRandomNumberInRange(from = 1, to = 6)) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
@@ -58,4 +49,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initListeners() = buttonListener(rollButton)
+
+    fun createBinding(){
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
+    fun giveDefaultViewValues(){
+        rollButton = binding.rollButton
+        rollButton.text = "Lets Roll"
+        diceImageView = binding.diceImage
+    }
 }

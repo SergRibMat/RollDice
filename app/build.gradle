@@ -26,6 +26,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    // Enables data binding.
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 //here, is where you add the libraries u will be using
