@@ -3,16 +3,20 @@ package com.example.rolldice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.rolldice.databinding.ActivityMainBinding
 
 
 lateinit var rollButton: Button
 lateinit var diceImageView: ImageView
 private lateinit var binding: ActivityMainBinding
+private lateinit var viewModel: MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,25 +25,23 @@ class MainActivity : AppCompatActivity() {
 
         createBinding()
         giveDefaultViewValues()
+        viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
         initListeners()
+
     }
 
     fun buttonListener(button: Button){
         button.setOnClickListener {
-            //showTextWithToast("clicked!")
-            rollDice()
+            viewModel.timer.start()
         }
     }
 
-    private fun rollDice() = diceImageView.setImageResource(getDrawableResource())
+    private fun rollDice(diceNum: Int) = diceImageView.setImageResource(getDrawableResource(diceNum))
 
     fun showTextWithToast(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
 
-    fun getRandomNumberInRange(from: Int, to: Int): Int = (from..to).random()
-
-
-    fun getDrawableResource() = when (getRandomNumberInRange(from = 1, to = 6)) {
+    fun getDrawableResource(diceNum: Int) = when (diceNum) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
         3 -> R.drawable.dice_3
@@ -48,14 +50,29 @@ class MainActivity : AppCompatActivity() {
         else -> R.drawable.dice_6
     }
 
-    fun initListeners() = buttonListener(rollButton)
+
+
+    fun initListeners() {
+        buttonListener(rollButton)
+
+        viewModel.num.observe(this, Observer { diceNum ->
+            rollDice(diceNum)
+        })
+    }
 
     fun createBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
+
     fun giveDefaultViewValues(){
         rollButton = binding.rollButton
         rollButton.text = "Lets Roll"
         diceImageView = binding.diceImage
     }
+
+
+
+
+
+
 }
