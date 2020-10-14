@@ -8,6 +8,7 @@ Technology used:
 * LiveData
 * ViewModel
 * Observer Pattern
+* CountDownTimer
 
 Architecture
 * MVVM
