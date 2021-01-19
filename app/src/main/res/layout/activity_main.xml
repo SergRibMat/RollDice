@@ -11,7 +11,7 @@
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_gravity="center_vertical"
-                  tools:context=".MainActivity">
+                  tools:context="sergio.ribera.roll_the_dice.MainActivity">
         <!--gravity is the attr to reposition Views and ViewGroups -->
         
         <!-- what srcCompat does is to use AndroidX libraries to make the xml

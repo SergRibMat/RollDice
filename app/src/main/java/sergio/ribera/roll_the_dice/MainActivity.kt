@@ -1,5 +1,5 @@
 //here, as the name of the package, we have the applicationId the gradle has to identify this app uniquely
-package com.example.roll_the_dice
+package sergio.ribera.roll_the_dice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.roll_the_dice.databinding.ActivityMainBinding
+import sergio.ribera.roll_the_dice.databinding.ActivityMainBinding
 
 
 lateinit var rollButton: Button

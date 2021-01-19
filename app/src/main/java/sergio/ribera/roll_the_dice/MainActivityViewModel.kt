@@ -1,4 +1,4 @@
-package com.example.roll_the_dice
+package sergio.ribera.roll_the_dice
 
 import android.os.CountDownTimer
 import androidx.lifecycle.MutableLiveData

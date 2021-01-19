@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.roll_the_dice">
+          package="sergio.ribera.roll_the_dice">
 
     <application
             android:allowBackup="true"
@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_new_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.example.roll_the_dice.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
