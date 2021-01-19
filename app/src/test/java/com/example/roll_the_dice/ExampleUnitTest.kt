@@ -1,4 +1,4 @@
-package com.example.rolldice
+package com.example.roll_the_dice
 
 import org.junit.Test
 

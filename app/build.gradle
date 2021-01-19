@@ -9,7 +9,7 @@ android {
     defaultConfig {
         //this is the Id that google and android uses to identify the app
         // For example, is not possible to install in the same device, 2 different apps with the same applicationId
-        applicationId "com.example.rolldice"
+        applicationId "com.example.roll_the_dice"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
