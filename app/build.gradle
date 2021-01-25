@@ -10,7 +10,7 @@ android {
         //this is the Id that google and android uses to identify the app
         // For example, is not possible to install in the same device, 2 different apps with the same applicationId
         applicationId "sergio.ribera.roll_the_dice"
-        minSdkVersion 24
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
